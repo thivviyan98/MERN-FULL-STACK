@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/test");
+    const mongo_uri = process.env.MONGO;
+    await mongoose.connect(mongo_uri);
     console.log("successfully connected to mongo");
   } catch (error) {
     console.error(`ERROR: ${error.message}`);
